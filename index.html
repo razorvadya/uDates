@@ -7,422 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>uDates</title>
   <link rel="stylesheet" href="./css/main.css">
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-
-    body,
-    * {
-      margin: 0;
-      padding: 0;
-      font-family: Open Sans;
-    }
-
-    .body {
-      max-width: 1366px;
-      margin: 0 auto;
-    }
-
-    img {
-      display: block;
-    }
-
-    .header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 11px 20px;
-    }
-
-    .logo {
-      padding-top: 2px;
-    }
-
-    .header select {
-      cursor: pointer;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      -ms-appearance: none;
-      appearance: none;
-      background: url(img/arrow-lang.svg) no-repeat right 8px #FFF;
-      outline: 0;
-      border: none;
-      padding: 0 9px;
-      font-size: 12px;
-      line-height: 22px;
-      margin: 0 16px;
-    }
-
-    .login_button {
-      background: #000000;
-      border-radius: 14px;
-      font: 700 11px Open Sans;
-      color: #FFF;
-      width: 67px;
-      height: 28px;
-      border: none;
-      padding: 6px 15px 7px;
-      cursor: pointer;
-    }
-
-    .search_bg {
-      background: url(./img/search.jpg);
-      height: 600px;
-    }
-
-    .search_block {
-      display: flex;
-      flex-direction: column;
-      padding: 103px 0 0 147px;
-      max-width: 438px;
-      align-items: center;
-    }
-
-    .search_head {
-      font-size: 36px;
-      line-height: 49px;
-      color: #FFFFFF;
-      padding: 0 0 27px;
-    }
-
-    .search select {
-      cursor: pointer;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      -ms-appearance: none;
-      appearance: none;
-      background: url(img/arrow.svg) no-repeat right 20px center #FFF;
-      outline: 0;
-      border: none;
-      border-radius: 50px;
-      padding: 14px 20px;
-      font-size: 16px;
-      line-height: 22px;
-    }
-
-    .search_age,
-    .search_sex {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .search_age {
-      padding-top: 20px;
-    }
-
-    .search_mw {
-      margin-top: 10px;
-      width: 290px;
-    }
-
-    .search_ages {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .search_age span,
-    .search_sex span {
-      font-size: 14px;
-      line-height: 19px;
-      color: #FFFFFF;
-    }
-
-    .search_hr {
-      background: #FFFFFF;
-      border-radius: 12px;
-      width: 18px;
-      height: 2px;
-      margin: 0 11px;
-    }
-
-    .search_age1,
-    .search_age2 {
-      width: 125px;
-    }
-
-    .search_button {
-      background: #F31D34;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 50px;
-      width: 290px;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 22px;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      border: none;
-      padding: 14px 0;
-      cursor: pointer;
-      margin: 30px 0;
-    }
-
-    .search_agree {
-      font-size: 11px;
-      line-height: 15px;
-      text-align: center;
-      color: #FFFFFF;
-      opacity: 0.5;
-    }
-
-    .search_agree a {
-      color: #FFFFFF;
-    }
-
-    .locate {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .locate_left {
-      padding: 207px 60px 0;
-    }
-
-    .locate_right {
-      margin: 42px 60px;
-    }
-
-    .locate_head {
-      font-size: 36px;
-      font-weight: 400;
-      line-height: 49.03px;
-    }
-
-    .locate_text {
-      font-size: 16px;
-      line-height: 28px;
-      padding: 30px 0 0;
-      width: 403px;
-    }
-
-    .chat {
-      background: #F31D34;
-      padding: 0 60px;
-      display: flex;
-      flex-direction: row;
-    }
-
-    .chat_left {
-      margin: 42px 0;
-    }
-
-    .chat_right {
-      width: 100%;
-    }
-
-    .chat_head {
-      font-size: 36px;
-      line-height: 49px;
-      text-align: right;
-      color: #FFFFFF;
-      margin: 207px 0 0;
-    }
-
-    .chat_text {
-      font-size: 16px;
-      line-height: 28px;
-      text-align: right;
-      color: #FFFFFF;
-      margin: 30px 0 0;
-    }
-
-    .match {
-      display: flex;
-      flex-direction: row;
-      padding: 0 60px;
-    }
-
-    .match_left {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .match_head {
-      font-size: 36px;
-      line-height: 49.03px;
-      padding-top: 207px;
-    }
-
-    .match_text {
-      margin: 30px 0 0;
-      font-size: 16px;
-      line-height: 28px;
-    }
-
-    .match_right {
-      flex: 1;
-      padding: 42px 0;
-    }
-
-    .footer {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding: 50px 0 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: 16px;
-      line-height: 22px;
-      color: #000000;
-    }
-
-    nav a:nth-child(2) {
-      margin: 0 37px;
-    }
-
-    .copyright {
-      padding: 50px 0px 81px;
-      font-size: 12px;
-      color: #999999;
-      text-align: center;
-    }
-
-
-    @media (max-width:1366px) {
-      .locate_right img {
-        object-fit: contain;
-        max-width: 100%;
-        height: 100%;
-      }
-
-      .chat_left img {
-        object-fit: contain;
-        max-width: 100%;
-        height: 100%;
-      }
-
-      .chat_right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .chat_head {
-        margin: 0;
-      }
-
-      .search_bg {
-        background-position: center;
-      }
-    }
-
-    @media (max-width:1294px) {
-      .locate_left {
-        padding: 0 60px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .chat_head {
-        margin: 0;
-      }
-
-      .match_right img {
-        object-fit: contain;
-        max-width: 100%;
-        height: 100%;
-      }
-
-    }
-
-
-    @media (max-width:1024px) {
-
-      .search_bg {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-
-
-      .search_block {
-        padding: 0;
-        max-width: 100%;
-      }
-
-      .search_head {
-        text-align: center;
-      }
-
-      .locate {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .locate_text {
-        width: 100%;
-      }
-
-      .locate_left {
-        padding: 60px 60px 0;
-      }
-
-      .chat {
-        flex-direction: column-reverse;
-        padding: 0 20px;
-      }
-
-      .chat_left {
-        display: flex;
-        justify-content: center;
-      }
-
-      .chat_right {
-        align-items: center;
-      }
-
-      .chat_head {
-        margin: 60px 0 0;
-      }
-
-      .match {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 20px;
-      }
-
-      .match_head {
-        padding-top: 60px;
-      }
-    }
-
-    @media (max-width:768px) {
-      .locate_left {
-        padding: 60px 20px 0;
-      }
-
-      .locate_right {
-        margin: 0 60px;
-      }
-
-      .match_right {
-        padding: 42px 0 0;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav a:nth-child(2) {
-        margin: 20px 0;
-      }
-
-      .copyright {
-        padding: 50px 60px 81px;
-      }
-
-    }
-  </style>
-
 </head>
 
 <body>
@@ -437,7 +21,63 @@
             <option>🇺🇸&nbsp;English</option>
             <option>🇷🇺&nbsp;Russian</option>
           </select>
-          <button class="login_button">Sign in</button>
+          <label>
+            <input type="checkbox">
+            <div class="login_button">Sign in</div>
+            <div id="cnt" class="content">
+              <div class="content_logo">
+                <img src="./img/logo.png" width="73px" />
+              </div>
+              <div class="content_text">Sign up to begin</div>
+              <label>
+                <input type="email" placeholder="Real Email">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="7.25" stroke="#B3B3B3" stroke-width="1.5" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 9.75C12.5523 9.75 13 9.30228 13 8.75C13 8.19772 12.5523 7.75 12 7.75C11.4477 7.75 11 8.19772 11 8.75C11 9.30228 11.4477 9.75 12 9.75ZM13 10.75H10.75V11.75H11.5V14.75H10.75V16.25H13.75V14.75H13V11.75V10.75Z"
+                    fill="#B3B3B3" />
+                </svg>
+
+              </label>
+              <input type="password" placeholder="Password (at least 6 characters)">
+              <button class="content_email">join with email</button>
+              <span class="content_span">or</span>
+              <button class="content_fb">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M13.6199 21.9999V13.7892H16.3997L16.8159 10.5894H13.6199V8.54642C13.6199 7.62001 13.8794 6.98861 15.2195 6.98861L16.9286 6.98783V4.12595C16.6329 4.0871 15.6184 4 14.4381 4C11.974 4 10.287 5.49113 10.287 8.22967V10.5895H7.5V13.7893H10.2869V22L13.6199 21.9999Z"
+                    fill="white" />
+                </svg>
+                Join with facebook</button>
+              <button class="content_google">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M19.9999 12.3488C19.9999 11.77 19.948 11.2134 19.8515 10.6791H12.1632V13.8368H16.5565C16.3673 14.8572 15.7921 15.7217 14.9276 16.3006V18.3488H17.5658C19.1094 16.9277 19.9999 14.8349 19.9999 12.3488Z"
+                    fill="#4285F4" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.1634 20.3266C14.3674 20.3266 16.2153 19.5956 17.566 18.3488L14.9277 16.3006C14.1968 16.7904 13.2617 17.0798 12.1634 17.0798C10.0372 17.0798 8.2376 15.6438 7.59567 13.7144H4.86841V15.8294C6.21163 18.4973 8.97229 20.3266 12.1634 20.3266Z"
+                    fill="#34A853" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M7.59553 13.7142C7.43227 13.2244 7.33951 12.7013 7.33951 12.1632C7.33951 11.6252 7.43227 11.102 7.59553 10.6122V8.49719H4.86827C4.3154 9.59923 4 10.846 4 12.1632C4 13.4805 4.3154 14.7272 4.86827 15.8293L7.59553 13.7142Z"
+                    fill="#FBBC05" />
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.1634 7.24674C13.3619 7.24674 14.4379 7.65861 15.284 8.46752L17.6253 6.12615C16.2116 4.8089 14.3637 4 12.1634 4C8.97229 4 6.21163 5.82931 4.86841 8.4972L7.59567 10.6122C8.2376 8.68273 10.0372 7.24674 12.1634 7.24674Z"
+                    fill="#EA4335" />
+                </svg>
+
+                Join with Google</button>
+              <div class="content_rules">By clicking “Join with email”, “Join with Facebook” or “Join with Google” you
+                agree with the Terms &
+                Conditions and
+                Privacy Policy.</div>
+            </div>
+            <div class="close">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L21 21" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M21 1L1 21" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </label>
         </div>
       </div>
     </header>
