@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>uDates</title>
+  <link rel="stylesheet" href="./css/main.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+    body,
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Open Sans;
+    }
+
+    .body {
+      max-width: 1366px;
+      margin: 0 auto;
+    }
+
+    img {
+      display: block;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 11px 20px;
+    }
+
+    .logo {
+      padding-top: 2px;
+    }
+
+    .header select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      background: url(img/arrow-lang.svg) no-repeat right 8px #FFF;
+      outline: 0;
+      border: none;
+      padding: 0 9px;
+      font-size: 12px;
+      line-height: 22px;
+      margin: 0 16px;
+    }
+
+    .login_button {
+      background: #000000;
+      border-radius: 14px;
+      font: 700 11px Open Sans;
+      color: #FFF;
+      width: 67px;
+      height: 28px;
+      border: none;
+      padding: 6px 15px 7px;
+      cursor: pointer;
+    }
+
+    .search_bg {
+      background: url(./img/search.jpg);
+      height: 600px;
+    }
+
+    .search_block {
+      display: flex;
+      flex-direction: column;
+      padding: 103px 0 0 147px;
+      max-width: 438px;
+      align-items: center;
+    }
+
+    .search_head {
+      font-size: 36px;
+      line-height: 49px;
+      color: #FFFFFF;
+      padding: 0 0 27px;
+    }
+
+    .search select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      background: url(img/arrow.svg) no-repeat right 20px center #FFF;
+      outline: 0;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 20px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .search_age,
+    .search_sex {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .search_age {
+      padding-top: 20px;
+    }
+
+    .search_mw {
+      margin-top: 10px;
+      width: 290px;
+    }
+
+    .search_ages {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .search_age span,
+    .search_sex span {
+      font-size: 14px;
+      line-height: 19px;
+      color: #FFFFFF;
+    }
+
+    .search_hr {
+      background: #FFFFFF;
+      border-radius: 12px;
+      width: 18px;
+      height: 2px;
+      margin: 0 11px;
+    }
+
+    .search_age1,
+    .search_age2 {
+      width: 125px;
+    }
+
+    .search_button {
+      background: #F31D34;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
+      width: 290px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 0;
+      cursor: pointer;
+      margin: 30px 0;
+    }
+
+    .search_agree {
+      font-size: 11px;
+      line-height: 15px;
+      text-align: center;
+      color: #FFFFFF;
+      opacity: 0.5;
+    }
+
+    .search_agree a {
+      color: #FFFFFF;
+    }
+
+    .locate {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .locate_left {
+      padding: 207px 60px 0;
+    }
+
+    .locate_right {
+      margin: 42px 60px;
+    }
+
+    .locate_head {
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 49.03px;
+    }
+
+    .locate_text {
+      font-size: 16px;
+      line-height: 28px;
+      padding: 30px 0 0;
+      width: 403px;
+    }
+
+    .chat {
+      background: #F31D34;
+      padding: 0 60px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .chat_left {
+      margin: 42px 0;
+    }
+
+    .chat_right {
+      width: 100%;
+    }
+
+    .chat_head {
+      font-size: 36px;
+      line-height: 49px;
+      text-align: right;
+      color: #FFFFFF;
+      margin: 207px 0 0;
+    }
+
+    .chat_text {
+      font-size: 16px;
+      line-height: 28px;
+      text-align: right;
+      color: #FFFFFF;
+      margin: 30px 0 0;
+    }
+
+    .match {
+      display: flex;
+      flex-direction: row;
+      padding: 0 60px;
+    }
+
+    .match_left {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .match_head {
+      font-size: 36px;
+      line-height: 49.03px;
+      padding-top: 207px;
+    }
+
+    .match_text {
+      margin: 30px 0 0;
+      font-size: 16px;
+      line-height: 28px;
+    }
+
+    .match_right {
+      flex: 1;
+      padding: 42px 0;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px 0 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 22px;
+      color: #000000;
+    }
+
+    nav a:nth-child(2) {
+      margin: 0 37px;
+    }
+
+    .copyright {
+      padding: 50px 0px 81px;
+      font-size: 12px;
+      color: #999999;
+      text-align: center;
+    }
+
+
+    @media (max-width:1366px) {
+      .locate_right img {
+        object-fit: contain;
+        max-width: 100%;
+        height: 100%;
+      }
+
+      .chat_left img {
+        object-fit: contain;
+        max-width: 100%;
+        height: 100%;
+      }
+
+      .chat_right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .chat_head {
+        margin: 0;
+      }
+
+      .search_bg {
+        background-position: center;
+      }
+    }
+
+    @media (max-width:1294px) {
+      .locate_left {
+        padding: 0 60px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .chat_head {
+        margin: 0;
+      }
+
+      .match_right img {
+        object-fit: contain;
+        max-width: 100%;
+        height: 100%;
+      }
+
+    }
+
+
+    @media (max-width:1024px) {
+
+      .search_bg {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+
+
+      .search_block {
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .search_head {
+        text-align: center;
+      }
+
+      .locate {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .locate_text {
+        width: 100%;
+      }
+
+      .locate_left {
+        padding: 60px 60px 0;
+      }
+
+      .chat {
+        flex-direction: column-reverse;
+        padding: 0 20px;
+      }
+
+      .chat_left {
+        display: flex;
+        justify-content: center;
+      }
+
+      .chat_right {
+        align-items: center;
+      }
+
+      .chat_head {
+        margin: 60px 0 0;
+      }
+
+      .match {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .match_head {
+        padding-top: 60px;
+      }
+    }
+
+    @media (max-width:768px) {
+      .locate_left {
+        padding: 60px 20px 0;
+      }
+
+      .locate_right {
+        margin: 0 60px;
+      }
+
+      .match_right {
+        padding: 42px 0 0;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a:nth-child(2) {
+        margin: 20px 0;
+      }
+
+      .copyright {
+        padding: 50px 60px 81px;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="body">
+    <header>
+      <div class="header">
+        <div class="logo">
+          <img src="./img/logo.png" width="73px" height="24px" />
+        </div>
+        <div class="login">
+          <select>
+            <option>🇺🇸&nbsp;English</option>
+            <option>🇷🇺&nbsp;Russian</option>
+          </select>
+          <button class="login_button">Sign in</button>
+        </div>
+      </div>
+    </header>
+    <section class="search">
+      <div class="search_bg">
+        <div class="search_block">
+          <div class="search_head">Meet Singles in Your Area!</div>
+
+          <div class="search_sex">
+            <span>I am a:</span>
+            <select class="search_mw">
+              <option>Man Seeking a Woman</option>
+              <option>Woman Seeking a man</option>
+            </select>
+          </div>
+          <div class="search_age">
+            <span>Between Ages:</span>
+            <div class="search_ages">
+              <select class="search_age1">
+                <option>18</option>
+                <option>19</option>
+              </select>
+              <div class="search_hr"></div>
+              <select class="search_age2">
+                <option>35</option>
+                <option>36</option>
+              </select>
+            </div>
+          </div>
+          <button class="search_button">get connected</button>
+          <div class="search_agree">By clicking “Get Connected” you agree <br />
+            with the <a href="">Terms & Conditions</a> and <a href="">Privacy Policy</a>.</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="locate">
+        <div class="locate_left">
+          <div class="locate_head">Locate Your Matches</div>
+          <div class="locate_text">Start dating free and find people on your wavelength.
+            It’s so much easier meeting locals nearby.<br />
+            Find matches where you live and chat instantly.</div>
+        </div>
+        <div class="locate_right">
+          <img src="./img/locate.png" width="651px" height="493px" />
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="chat">
+        <div class="chat_left">
+          <img src="img/chat.png" width="651px" height="493px" />
+        </div>
+        <div class="chat_right">
+          <div class="chat_head">Hit it Off Fast</div>
+          <div class="chat_text">Chat easily and find common ground with local singles!<br />
+            Make the first move or see who checked you out.&nbsp;<br />
+            Get notifications and never miss a thing!</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="match">
+        <div class="match_left">
+          <div class="match_head">Inspire Exciting Times…</div>
+          <div class="match_text">See who viewed your profile!<br />
+            Share mutual likes for a perfect match 💕<br />
+            Chat, flirt and get closer to people near you!</div>
+        </div>
+        <div class="match_right">
+          <img src="img/match.png" width="651px" height="493px" />
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <nav>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy </a>
+          <a href="#">Help Center</a>
+        </nav>
+        <div class="copyright">Copyright 2021 by SIA Battika, reg. number 40003354915, Latvia, Riga, Matisa iela 61 -
+          33, LV-1009. All
+          rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
