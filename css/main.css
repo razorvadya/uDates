@@ -593,7 +593,6 @@ input[type='password'] {
   }
 
   .content_logo {
-    position: fixed;
     top: 30px;
     left: 40px;
   }
@@ -606,5 +605,39 @@ input[type='password'] {
   .content_fb,
   .content_google {
     width: 280px;
+  }
+}
+
+@media (max-width: 320px) {
+  .content_logo {
+    top: 13px;
+    left: 20px;
+  }
+
+  #cnt {
+    padding: 70px 0 0;
+  }
+
+  .close {
+    top: 16px;
+  }
+  .close svg {
+    width: 15px;
+  }
+
+  .content label {
+    margin-top: 10px;
+  }
+
+  .content_text {
+    font-size: 24px;
+  }
+
+  .content_rules {
+    margin-top: 30px;
+  }
+
+  .content span {
+    margin: 10px 0;
   }
 }
